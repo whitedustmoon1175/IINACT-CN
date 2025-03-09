@@ -1,6 +1,6 @@
 ![icon](https://github.com/marzent/IINACT/blob/main/images/icon.ico?raw=true)
 
-[English](https://github.com/whitedustmoon1175/IINACT/blob/master/README-EN.md)
+[English](https://github.com/whitedustmoon1175/IINACT-CN/main/README-EN.md)
 
 # IINACT
 
@@ -23,7 +23,7 @@
 ## 安装
 
 > **警告**  
-> 任何 Dalamud 官方支持渠道都不会为此插件提供支持。任何支持请求请使用 [Issues](https://github.com/marzent/IINACT/issues) 页或[Discord](https://discord.gg/pcexJC8YPG) 提出。不要去 [XIVLauncher & Dalamud Discord](https://discord.gg/holdshift)寻求支持, 那里只是插件平台，不提供对第三方插件的支持。（当然如果是中文版iinact独有的问题请在 [Issues](https://github.com/whitedustmoon1175/IINACT/issues) 提出，如果我知道如何解决会尽量提供支持）
+> 任何 Dalamud 官方支持渠道都不会为此插件提供支持。任何支持请求请使用 [Issues](https://github.com/marzent/IINACT/issues) 页或[Discord](https://discord.gg/pcexJC8YPG) 提出。不要去 [XIVLauncher & Dalamud Discord](https://discord.gg/holdshift)寻求支持, 那里只是插件平台，不提供对第三方插件的支持。（当然如果是中文版iinact独有的问题请在 [Issues](https://github.com/whitedustmoon1175/IINACT-CN/issues) 提出，如果我知道如何解决会尽量提供支持）
 
 安装说明可以[这里](https://www.iinact.com/installation/)找到，但与任何其他第三方插件存储库无关。
 
@@ -32,8 +32,8 @@
 只需在装有[.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 的Linux, macOS 或 Windows 计算机上运行。
 ```
-git clone --recurse-submodules https://github.com/whitedustmoon1175/IINACT.git
-cd IINACT
+git clone --recurse-submodules https://github.com/whitedustmoon1175/IINACT-CN.git
+cd IINACT-CN
 dotnet build
 ``` 
 

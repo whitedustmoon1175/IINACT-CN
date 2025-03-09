@@ -1,11 +1,10 @@
-﻿
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
-using FFXIVClientStructs.Global.FFXIV.Client.Game.Gauge;
+using FFXIVClientStructs.FFXIV.Client.Game.Gauge;
 #if !DEBUG
 using Newtonsoft.Json;
 #endif

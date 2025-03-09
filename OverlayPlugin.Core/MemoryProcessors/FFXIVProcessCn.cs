@@ -7,7 +7,8 @@ using Newtonsoft.Json.Linq;
 using RainbowMage.OverlayPlugin;
 using RainbowMage.OverlayPlugin.MemoryProcessors;
 
-namespace Cactbot {
+namespace RainbowMage.OverlayPlugin.MemoryProcessors
+{
   public class FFXIVProcessCn : FFXIVProcess {
     // Last updated for FFXIV 7.1
 

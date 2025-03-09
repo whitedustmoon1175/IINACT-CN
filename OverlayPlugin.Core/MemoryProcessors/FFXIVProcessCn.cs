@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using Newtonsoft.Json.Linq;
 //using CactbotEventSource.loc;
 using RainbowMage.OverlayPlugin;
-using RainbowMage.OverlayPlugin.MemoryProcessors; 
+using RainbowMage.OverlayPlugin.MemoryProcessors;
 
 namespace Cactbot {
   public class FFXIVProcessCn : FFXIVProcess {
@@ -122,35 +122,35 @@ namespace Cactbot {
       // They both point to the same spot, so verify these have the same value.
       p = SigScan(kCharmapSignature, kCharmapSignatureOffset, kCharmapSignatureRIP);
       if (p.Count == 0) {
-          logger_.Log(LogLevel.Error, "Charmap signature found" + p.Count + "matches");
-      } else {
-          IntPtr player_ptr_value = IntPtr.Zero;
-          foreach (IntPtr ptr in p) {
-              IntPtr addr = IntPtr.Add(ptr, kCharmapStructOffsetPlayer);
-              IntPtr value = ReadIntPtr(addr);
-              if (player_ptr_value == IntPtr.Zero || player_ptr_value == value) {
-                  player_ptr_value = value;
-                  player_ptr_addr_ = addr;
-              } else {
-                  logger_.Log(LogLevel.Error, "Charmap signature conflicting match found");
-              }
+        logger_.Log(LogLevel.Error, "Charmap signature found " + p.Count + " matches");
+          } else {
+        IntPtr player_ptr_value = IntPtr.Zero;
+        foreach (IntPtr ptr in p) {
+          IntPtr addr = IntPtr.Add(ptr, kCharmapStructOffsetPlayer);
+          IntPtr value = ReadIntPtr(addr);
+          if (player_ptr_value == IntPtr.Zero || player_ptr_value == value) {
+            player_ptr_value = value;
+            player_ptr_addr_ = addr;
+          } else {
+            logger_.Log(LogLevel.Error, "Charmap signature found, but conflicting match");
           }
+        }
       }
 
       p = SigScan(kJobDataSignature, kJobDataSignatureOffset, kJobDataSignatureRIP);
       if (p.Count != 1) {
-          logger_.Log(LogLevel.Error, "Job signature found" + p.Count + "matches");
+            logger_.Log(LogLevel.Error, "Job signature found " + p.Count + " matches");
       } else {
-          job_data_outer_addr_ = IntPtr.Add(p[0], kJobDataOuterStructOffset);
+        job_data_outer_addr_ = IntPtr.Add(p[0], kJobDataOuterStructOffset);
       }
-  
+
       p = SigScan(kInCombatSignature, kInCombatSignatureOffset, kInCombatSignatureRIP, kInCombatRipOffset);
       if (p.Count != 1) {
-          logger_.Log(LogLevel.Error, "In-combat signature found" + p.Count + "matches");
+        logger_.Log(LogLevel.Error, "In combat signature found " + p.Count + " matches");
       } else {
-          in_combat_addr_ = p[0];
+        in_combat_addr_ = p[0];
       }
-   }
+    }
 
     public unsafe override EntityData GetEntityDataFromByteArray(byte[] source) {
       fixed (byte* p = source) {

@@ -1,48 +1,50 @@
 ![icon](https://github.com/marzent/IINACT/blob/main/images/icon.ico?raw=true)
 
+[English](https://github.com/whitedustmoon1175/IINACT/blob/master/README-EN.md)
+
 # IINACT
 
-A [Dalamud](https://github.com/goatcorp/Dalamud) plugin to run the [FFXIV_ACT_Plugin](https://github.com/ravahn/FFXIV_ACT_Plugin) in an [ACT](https://advancedcombattracker.com/)-like enviroment with a heavily modified port of [Overlay Plugin](https://github.com/OverlayPlugin/OverlayPlugin) for modern .NET.
+一个用于在类[ACT](https://advancedcombattracker.com/)环境下运行 [FFXIV_ACT_Plugin](https://github.com/ravahn/FFXIV_ACT_Plugin)的[Dalamud](https://github.com/goatcorp/Dalamud) 插件，并使用针对现代 .NET 的[Overlay Plugin](https://github.com/OverlayPlugin/OverlayPlugin) 端口进行大量修改。
 
-The data source here is only based on `Dalamud.Game.Network` and does not require any extra injection with [Deucalion](https://github.com/ff14wed/deucalion) or network capture with elevated privileges.
+此处的数据源仅基于 `Dalamud.Game.Network` 不需要任何使用 [Deucalion](https://github.com/ff14wed/deucalion) 的额外注入或使用提升权限的网络捕获。
 
-This will **not** render overlays by itself, use something like [Browsingway](https://github.com/Styr1x/Browsingway), [Next UI](https://github.com/kaminaris/Next-UI), [hudkit](https://github.com/valarnin/hudkit) (Linux only) or [Bunny HUD](https://github.com/marzent/Bunny-HUD) (macOS only) to display Overlays.
+本插件 **不会** 自己渲染覆盖层，请使用[Browsingway](https://github.com/Styr1x/Browsingway), [Next UI](https://github.com/kaminaris/Next-UI), [hudkit](https://github.com/valarnin/hudkit) (仅限Linux) 或者 [Bunny HUD](https://github.com/marzent/Bunny-HUD) (仅限macOS) 等插件来显示覆盖层。
 
 
-## Why
+## 原因
 
-- ACT is too inconvenient IMHO for just wanting to have the game data parsed and served via a WebSocket server
-- Drastically more efficent than ACT, in part to .NET 7.0, in part to a more sane log line processing (disk I/O is not blocking LogLineEvents and happening on a separate lower priority thread)
-- Due to the above and running fully inside the game process CPU usage will be orders of magnitude (not exaggerating here) lower when running under Wine compared to network-based capture
-- Uses an ultra fast and low latency WebSocket server based on [NetCoreServer](https://github.com/chronoxor/NetCoreServer)
-- Doesn't use legacy technology that hurts Linux and macOS users
-- Follows the Unix philosophy of just doing one thing and doing it well   
+- 在原作者看来，对于仅想通过 WebSocket 服务器解析和提供游戏数据的需求来说，ACT 太不方便了
+- 比 ACT 效率高得多，部分原因是 .NET 7.0，部分是更合理的日志行处理（磁盘 I/O 不会阻止 LogLineEvents，而是发生在单独的较低优先级线程上）
+- 由于上述原因，并且完全在游戏进程内运行，与基于网络的捕获相比，在 Wine 下运行时，CPU 使用率将降低几个数量级（这里没有夸大）
+- 使用基于 [NetCoreServer](https://github.com/chronoxor/NetCoreServer)的超快速低延迟 WebSocket 服务器
+- 不使用会伤害 Linux 和 macOS 用户的旧式技术
+- 遵循 Unix 的理念，只做一件事并把它做好  
 
-## Installing 
+## 安装
 
-> **Warning**  
-> No support will be provided on any Dalamud official support channel. Please use the [Issues](https://github.com/marzent/IINACT/issues) page or [Discord](https://discord.gg/pcexJC8YPG) for any support requests. Do NOT ask for support on the [XIVLauncher & Dalamud Discord](https://discord.gg/holdshift), as support for 3rd-party plugins is not provided there. 
+> **警告**  
+> 任何 Dalamud 官方支持渠道都不会为此插件提供支持。任何支持请求请使用 [Issues](https://github.com/marzent/IINACT/issues) 页或[Discord](https://discord.gg/pcexJC8YPG) 提出。不要去 [XIVLauncher & Dalamud Discord](https://discord.gg/holdshift)寻求支持, 那里只是插件平台，不提供对第三方插件的支持。（当然如果是中文版iinact独有的问题请在 [Issues](https://github.com/whitedustmoon1175/IINACT/issues) 提出，如果我知道如何解决会尽量提供支持）
 
-Install instructions can be found [here](https://www.iinact.com/installation/), but are indentical to any other 3rd-party plugin repository.
+安装说明可以[这里](https://www.iinact.com/installation/)找到，但与任何其他第三方插件存储库无关。
 
-## How to build
+## 如何搭建
 
-Just run 
+只需在装有[.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+的Linux, macOS 或 Windows 计算机上运行。
 ```
-git clone --recurse-submodules https://github.com/marzent/IINACT.git
+git clone --recurse-submodules https://github.com/whitedustmoon1175/IINACT.git
 cd IINACT
 dotnet build
 ``` 
-on a Linux, macOS or Windows machine with the [.NET 7 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0). 
 
-You will need to be able to reference Dalamud as well, meaning having an install of [XL](https://github.com/goatcorp/FFXIVQuickLauncher) or [XOM](https://github.com/marzent/XIV-on-Mac) on Windows and macOS respectively. On Linux `DALAMUD_HOME` needs to be correctly set (for example `$HOME/.xlcore/dalamud/Hooks/dev`).
+您还需要能够引用 Dalamud，这意味着需要分别在 Windows 和 macOS 上安装 [XL](https://github.com/goatcorp/FFXIVQuickLauncher) 或者 [XOM](https://github.com/marzent/XIV-on-Mac) 。 在 Linux 上`DALAMUD_HOME` 需要被正确设置(例如`$HOME/.xlcore/dalamud/Hooks/dev`)。
 
 ## FAQ
 
-**Where are my logs?**
+**我的logs文件在哪里？**
 
-- In your Documents folder. For Windows users, `C:\Users\[user]\Documents\IINACT`. For Mac/Linux users, same thing, but relative to your wine prefix.
+- 在您的 Documents 文件夹中。对于 Windows 用户，在 `C:\Users\[user]\Documents\IINACT`. 对于 Mac/Linux 用户，情况相同，但与 wine 前缀相关。
 
-**Are these logs compatible with FFLogs? Can I use the FFLogs Uploader?**
+**这些logs文件与 FFLog 兼容吗？我可以使用 FFLogs Uploader 吗？**
 
-- Yes! 100% compatible.
+- 当然！100% 兼容。

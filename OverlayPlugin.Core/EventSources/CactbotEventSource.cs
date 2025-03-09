@@ -1,4 +1,4 @@
-﻿using Advanced_Combat_Tracker;
+﻿﻿using Advanced_Combat_Tracker;
 using Newtonsoft.Json.Linq;
 using RainbowMage.OverlayPlugin.MemoryProcessors;
 using System;

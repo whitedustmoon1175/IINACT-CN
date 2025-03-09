@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Newtonsoft.Json.Linq;
-using CactbotEventSource.loc;
+//using CactbotEventSource.loc;
 using RainbowMage.OverlayPlugin;
 using RainbowMage.OverlayPlugin.MemoryProcessors; 
 

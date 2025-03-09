@@ -1,6 +1,6 @@
 ![icon](https://github.com/marzent/IINACT/blob/main/images/icon.ico?raw=true)
 
-[中文版](https://github.com/whitedustmoon1175/IINACT/blob/master/README.md)
+[中文版](https://github.com/whitedustmoon1175/IINACT-CN/blob/master/README.md)
 
 # IINACT
 
@@ -31,8 +31,8 @@ Install instructions can be found [here](https://www.iinact.com/installation/), 
 
 Just run 
 ```
-git clone --recurse-submodules https://github.com/whitedustmoon1175/IINACT.git
-cd IINACT
+git clone --recurse-submodules https://github.com/whitedustmoon1175/IINACT-CN.git
+cd IINACT-CN
 dotnet build
 ``` 
 on a Linux, macOS or Windows machine with the [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0). 
